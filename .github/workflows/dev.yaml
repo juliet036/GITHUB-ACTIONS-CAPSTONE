@@ -1,0 +1,22 @@
+name: Halo Dev Pipeline
+on:
+    push:
+      branches:
+        - main
+jobs:
+  build:
+    runs-on:  ubuntu-18.04
+    steps:
+      - name: Check out Code
+        uses: action/checkout@v3
+
+      - name: Set up Node jobs
+        uses: action/checkout@v2
+        with:
+          node-version: 18
+      
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Confirm Build
+        run: Echo Build successful
